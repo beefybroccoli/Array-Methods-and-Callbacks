@@ -61,6 +61,7 @@ Use the higher-order function getWinners to do the following:
 
 function getWinners(/* code here */) {
     /* code here */
+    //want an array of winner
 }
 
 
@@ -77,6 +78,7 @@ hint: the strings returned need to exactly match the string in step 4.
 
 function getWinnersByYear(/* code here */) {
     /* code here */
+    
 }
 
 
@@ -94,7 +96,6 @@ Use the higher order function getAverageGoals to do the following:
 function getAverageGoals(/* code here */) {
    /* code here */
 }
-
 
 
 
