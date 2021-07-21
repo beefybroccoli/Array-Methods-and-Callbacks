@@ -153,23 +153,19 @@ Hint: use `.reduce` */
 function getCountryWins(input_data, input_team_initials) {
     const number_one = 1;
     const initial_value_zero = 0;
-    const data = input_data.filter( 
-        function (element,input_team_initials) {
-            return element["Stage"]==="Final"
-                && element["Home Team Initials"] === input_team_initials
-                // (   element["Home Team Initials"] === input_team_initials || 
-                //     element["Away Team Initials"] === input_team_initials
-                // )     
-        });
-    console.log(data);
-    return -10;
-    // return data.reduce(
-    //     (accumulator, element) => {
-    //         return accumulator += number_one;
-    //     }
-    // );
+    return input_data
+                .filter( element => element["Stage"]==="Final")
+                .filter( element => element["Home Team Initials"] === input_team_initials || element["Away Team Initials"] === input_team_initials)
+                .reduce( (accumulator, element) => {return accumulator += number_one;}, initial_value_zero);//end reduce
 
-}
+                // if( element["Home Team Goals"] > element["Away Team Goals"] && element["Home Team Initials"] === input_team_initials){
+                    
+                // }//end if
+                // else if (element["Home Team Goals"] < element["Away Team Goals"] && element["Away Team Initials"] === input_team_initials){
+                //     return accumulator += number_one;
+                // }//end else if
+                
+}//end function getCountryWins
 
 console.log(getCountryWins(fifaData, "BRA"));
 
