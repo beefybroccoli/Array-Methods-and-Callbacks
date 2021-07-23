@@ -154,37 +154,62 @@ function getCountryWins(input_data, input_team_initials) {
     const number_one = 1;
     const initial_value_zero = 0;
     return input_data
-                .filter( element => element["Stage"]==="Final")
-                .filter( element => element["Home Team Initials"] === input_team_initials || element["Away Team Initials"] === input_team_initials)
-                .reduce( (accumulator, element) => {return accumulator += number_one;}, initial_value_zero);//end reduce
+        .filter( element => 
+            element["Stage"]==="Final")
+        .filter( element => 
+            element["Home Team Initials"] === input_team_initials || element["Away Team Initials"] === input_team_initials)
+        .reduce( (accumulator, element) => {
+            
+                //case - home team win
+                if (element["Home Team Goals"] > element["Away Team Goals"] 
+                    && element["Home Team Initials"]===input_team_initials) {
+                
+                        return accumulator += number_one;}
+                
+                //case - away team win
+                else if (element["Home Team Goals"] < element["Away Team Goals"]
+                    && element["Away Team Initials"]===input_team_initials) {
+                
+                        return accumulator += number_one;}
+                
+                    //case - no one win
+                else {
 
-                // if( element["Home Team Goals"] > element["Away Team Goals"] && element["Home Team Initials"] === input_team_initials){
-                    
-                // }//end if
-                // else if (element["Home Team Goals"] < element["Away Team Goals"] && element["Away Team Initials"] === input_team_initials){
-                //     return accumulator += number_one;
-                // }//end else if
+                    return accumulator += 0;
+                }
+
+            }//end anoymous function
+            , initial_value_zero);//end reduce
                 
 }//end function getCountryWins
 
-console.log(getCountryWins(fifaData, "BRA"));
+// console.log(getCountryWins(fifaData, "BRA"));
 
 /* 💪💪💪💪💪 Stretch 2: 💪💪💪💪💪 
 Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getGoals(/* code here */) {
+function getGoals(input_data) {
 
-    /* code here */
+    const initial_value_zero = 0;
+
+    return input_data
+        .filter( element => element["Stage"]==="Final")
+        // .map()
+        
 
 }
 
+console.log("");
+console.log("stretch 2 ------------------------")
+console.log(getGoals(fifaData).length);
 
 /* 💪💪💪💪💪 Stretch 3: 💪💪💪💪💪
 Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
 
 function badDefense(/* code here */) {
 
-    /* code here */
+    return input_data
+        .filter( element => element["Stage"]==="Final")
 
 }
 
