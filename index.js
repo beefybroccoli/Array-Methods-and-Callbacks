@@ -194,13 +194,12 @@ function getGoals(input_data) {
 
     return input_data
         .filter( element => element["Stage"]==="Final")
-        // .map()
         
-
+        
 }
 
 console.log("");
-console.log("stretch 2 ------------------------")
+console.log("stretch 2 ------------")
 console.log(getGoals(fifaData).length);
 
 /* 💪💪💪💪💪 Stretch 3: 💪💪💪💪💪
